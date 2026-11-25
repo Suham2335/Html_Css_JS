@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q11. Student Management System Using JavaScript DOM</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        input, button { padding: 8px; margin: 5px 3px; }
+        button { cursor: pointer; }
+        .message { margin-top: 12px; }
+        table { border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #555; padding: 8px 12px; }
+        
+    </style>
+</head>
+<body>
+<h2>Student Registration Form</h2>
+<form id='studentForm'>
+    <label>Student Name <input type='text' id='studentName'></label><br>
+    <label>Roll Number <input type='text' id='rollNumber'></label><br>
+    <label>Section <input type='text' id='section'></label><br>
+    <label>Age <input type='number' id='age'></label><br>
+    <label>Address <input type='text' id='address'></label><br>
+    <label>Phone Number <input type='text' id='phone'></label><br>
+    <button type='button' onclick='addStudent()'>Add Student</button>
+    <button type='button' onclick='clearForm()'>Clear Form</button>
+</form>
+<p id='message' class='message'></p>
+<h2>Student Records</h2>
+<table>
+    <thead><tr><th>Roll No.</th><th>Name</th><th>Section</th><th>Age</th><th>Address</th><th>Phone</th><th>Action</th></tr></thead>
+    <tbody id='studentRecords'></tbody>
+</table>
+<script>
+function addStudent() {
+    let name = document.getElementById("studentName").value.trim();
+    let roll = document.getElementById("rollNumber").value.trim();
+    let section = document.getElementById("section").value.trim();
+    let age = document.getElementById("age").value;
+    let address = document.getElementById("address").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let message = document.getElementById("message");
+
+    if (name === "" || roll === "" || section === "" || age === "" || address === "" || phone === "") {
+        message.textContent = "Please fill in all fields.";
+        return;
+    }
+    if (Number(age) <= 0) {
+        message.textContent = "Age must be greater than 0.";
+        return;
+    }
+
+    let row = document.createElement("tr");
+    let values = [roll, name, section, age, address, phone];
+
+    for (let i = 0; i < values.length; i++) {
+        let cell = document.createElement("td");
+        cell.textContent = values[i];
+        row.appendChild(cell);
+    }
+
+    let actionCell = document.createElement("td");
+    let deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.onclick = function () {
+        row.remove();
+    };
+    actionCell.appendChild(deleteButton);
+    row.appendChild(actionCell);
+
+    document.getElementById("studentRecords").appendChild(row);
+    message.textContent = "Student added successfully!";
+    clearForm();
+}
+
+function clearForm() {
+    document.getElementById("studentForm").reset();
+}
+</script>
+</body>
+</html>

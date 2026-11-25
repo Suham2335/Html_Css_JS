@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q9. Simple Form Validation Using DOM</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        input, button { padding: 8px; margin: 5px 3px; }
+        button { cursor: pointer; }
+        .message { margin-top: 12px; }
+        table { border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #555; padding: 8px 12px; }
+        
+    </style>
+</head>
+<body>
+<h2>Registration Form</h2>
+<form onsubmit='validateForm(event)'>
+<label>Name: <input type='text' id='name'></label><br>
+<label>Email: <input type='text' id='email'></label><br>
+<label>Password: <input type='password' id='password'></label><br>
+<button type='submit'>Submit</button>
+</form>
+<p id='message' class='message'></p>
+<script>
+function validateForm(event) {
+    event.preventDefault();
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value;
+    let message = document.getElementById("message");
+
+    if (name === "" || email === "" || password === "") {
+        message.textContent = "All fields must be filled.";
+    } else if (name.length < 3) {
+        message.textContent = "Name must contain at least 3 characters.";
+    } else if (!email.includes("@")) {
+        message.textContent = "Email must contain @.";
+    } else if (password.length < 6) {
+        message.textContent = "Password must contain at least 6 characters.";
+    } else {
+        message.textContent = "Registration Successful!";
+    }
+}
+</script>
+</body>
+</html>

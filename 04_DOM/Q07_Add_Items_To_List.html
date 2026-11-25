@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q7. Add New Items to a List</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        input, button { padding: 8px; margin: 5px 3px; }
+        button { cursor: pointer; }
+        .message { margin-top: 12px; }
+        table { border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #555; padding: 8px 12px; }
+        
+    </style>
+</head>
+<body>
+<input type='text' id='itemInput' placeholder='Enter an item'>
+<button onclick='addItem()'>Add Item</button>
+<ul id='itemList'></ul>
+<script>
+function addItem() {
+    let input = document.getElementById("itemInput");
+    let itemName = input.value.trim();
+    if (itemName !== "") {
+        let listItem = document.createElement("li");
+        listItem.textContent = itemName;
+        document.getElementById("itemList").appendChild(listItem);
+        input.value = "";
+    }
+}
+</script>
+</body>
+</html>

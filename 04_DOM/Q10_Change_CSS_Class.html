@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q10. Change CSS Class Using DOM</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        input, button { padding: 8px; margin: 5px 3px; }
+        button { cursor: pointer; }
+        .message { margin-top: 12px; }
+        table { border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #555; padding: 8px 12px; }
+        
+    </style>
+</head>
+<body>
+<h1 id='heading'>JavaScript DOM</h1>
+<p id='paragraph'>This paragraph will be styled when you click the button.</p>
+<button onclick='applyStyling()'>Apply Styling</button>
+<script>
+function applyStyling() {
+    document.getElementById("heading").style.color = "blue";
+    let paragraph = document.getElementById("paragraph");
+    paragraph.style.backgroundColor = "lightgray";
+    paragraph.style.fontSize = "20px";
+    paragraph.style.fontWeight = "bold";
+}
+</script>
+</body>
+</html>

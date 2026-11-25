@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q8. Remove an Element from a List</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        input, button { padding: 8px; margin: 5px 3px; }
+        button { cursor: pointer; }
+        .message { margin-top: 12px; }
+        table { border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #555; padding: 8px 12px; }
+        
+    </style>
+</head>
+<body>
+<ul id='students'>
+<li>Ram</li><li>Hari</li><li>Sita</li><li>Gita</li><li>John</li>
+</ul>
+<button onclick='removeLastStudent()'>Remove Last Student</button>
+<p id='message'></p>
+<script>
+function removeLastStudent() {
+    let list = document.getElementById("students");
+    if (list.lastElementChild) {
+        list.lastElementChild.remove();
+        document.getElementById("message").textContent = "Last student removed.";
+    } else {
+        document.getElementById("message").textContent = "The list is already empty.";
+    }
+}
+</script>
+</body>
+</html>

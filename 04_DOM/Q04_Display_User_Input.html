@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4. Display User Input</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        input, button { padding: 8px; margin: 5px 3px; }
+        button { cursor: pointer; }
+        .message { margin-top: 12px; }
+        table { border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #555; padding: 8px 12px; }
+        
+    </style>
+</head>
+<body>
+<h2>Enter Student Name</h2>
+<input type='text' id='studentName' placeholder='Enter your name'>
+<button onclick='submitName()'>Submit</button>
+<p id='result'></p>
+<script>
+function submitName() {
+    let name = document.getElementById("studentName").value;
+    document.getElementById("result").textContent = "Hello, " + name + "! Welcome to the class.";
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q5. Simple Counter Application</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        input, button { padding: 8px; margin: 5px 3px; }
+        button { cursor: pointer; }
+        .message { margin-top: 12px; }
+        table { border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #555; padding: 8px 12px; }
+        
+    </style>
+</head>
+<body>
+<h1 id='count'>0</h1>
+<button onclick='increment()'>Increment</button>
+<button onclick='decrement()'>Decrement</button>
+<button onclick='reset()'>Reset</button>
+<script>
+let count = 0;
+function showCount() {
+    document.getElementById("count").textContent = count;
+}
+function increment() {
+    count++;
+    showCount();
+}
+function decrement() {
+    count--;
+    showCount();
+}
+function reset() {
+    count = 0;
+    showCount();
+}
+</script>
+</body>
+</html>
